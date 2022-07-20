@@ -1,0 +1,18 @@
+version: '3'
+services:
+  api:
+    platform: linux/x86_64
+    command: yarn dev
+    build:
+      context: "./"
+    volumes:
+      - .:/app
+      - ./app/node_modules
+    working_dir: /app
+    ports:
+      - "9999:9999"
+    expose:
+      - '9999'
+    container_name: monopoly-api
+volumes:
+  .:
